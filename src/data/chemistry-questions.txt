@@ -12,6 +12,20 @@ OPTIONS: True|False
 ANSWER: True
 EXPLANATION: Isotopes are atoms of one element with different neutron counts.
 ---
+TOPIC: Atomic Structure
+QUESTION: Which element has atomic number 8?
+TYPE: multiple-choice
+OPTIONS: Nitrogen|Oxygen|Fluorine|Carbon
+ANSWER: Oxygen
+EXPLANATION: Atomic number 8 corresponds to oxygen, which has 8 protons in its nucleus.
+---
+TOPIC: Atomic Structure
+QUESTION: The second electron shell can hold up to 8 electrons.
+TYPE: true-false
+OPTIONS: True|False
+ANSWER: True
+EXPLANATION: The second shell follows the 2n² rule, giving 8 maximum electrons for n = 2.
+---
 TOPIC: Chemical Bonding
 QUESTION: Which bond forms by the transfer of electrons from one atom to another?
 TYPE: multiple-choice
@@ -26,12 +40,47 @@ OPTIONS: True|False
 ANSWER: True
 EXPLANATION: Each oxygen atom shares two electrons, giving a double bond.
 ---
+TOPIC: Chemical Bonding
+QUESTION: Which molecule contains a polar covalent bond?
+TYPE: multiple-choice
+OPTIONS: H2|Cl2|HCl|NaCl
+ANSWER: HCl
+EXPLANATION: HCl is polar because chlorine attracts the shared electrons more strongly than hydrogen.
+---
+TOPIC: Chemical Bonding
+QUESTION: Metallic bonds allow electrons to move freely through the structure.
+TYPE: true-false
+OPTIONS: True|False
+ANSWER: True
+EXPLANATION: Mobile delocalized electrons are a defining feature of metallic bonding.
+---
 TOPIC: Stoichiometry
 QUESTION: What is the molar mass of H2O?
 TYPE: multiple-choice
 OPTIONS: 16 g/mol|18 g/mol|20 g/mol|22 g/mol
 ANSWER: 18 g/mol
 EXPLANATION: H2O has two hydrogens (2 x 1) and one oxygen (16), totaling 18 g/mol.
+---
+TOPIC: Stoichiometry
+QUESTION: In the reaction 2H2 + O2 -> 2H2O, how many moles of water are produced from 2 moles of H2 and 1 mole of O2?
+TYPE: multiple-choice
+OPTIONS: 1|2|3|4
+ANSWER: 2
+EXPLANATION: The balanced equation shows a 2:1:2 ratio, so 2 moles of H2 and 1 mole of O2 produce 2 moles of water.
+---
+TOPIC: Stoichiometry
+QUESTION: A balanced chemical equation obeys the law of conservation of mass.
+TYPE: true-false
+OPTIONS: True|False
+ANSWER: True
+EXPLANATION: Atoms are neither created nor destroyed, so the number of each atom must match on both sides.
+---
+TOPIC: Stoichiometry
+QUESTION: What is the mass of 1 mole of carbon dioxide, CO2?
+TYPE: multiple-choice
+OPTIONS: 12 g|28 g|44 g|56 g
+ANSWER: 44 g
+EXPLANATION: Carbon is 12 g/mol and oxygen is 16 g/mol, so CO2 = 12 + 2×16 = 44 g/mol.
 ---
 TOPIC: Acids and Bases
 QUESTION: A solution with pH 3 is acidic.
@@ -40,6 +89,27 @@ OPTIONS: True|False
 ANSWER: True
 EXPLANATION: Solutions with pH below 7 are acidic.
 ---
+TOPIC: Acids and Bases
+QUESTION: Which pH value represents a weakly basic solution?
+TYPE: multiple-choice
+OPTIONS: 2|5|7|9
+ANSWER: 9
+EXPLANATION: A pH greater than 7 indicates a basic solution, and 9 is weakly basic.
+---
+TOPIC: Acids and Bases
+QUESTION: Neutralization is the reaction between an acid and a base.
+TYPE: true-false
+OPTIONS: True|False
+ANSWER: True
+EXPLANATION: Acids and bases react to form water and a salt.
+---
+TOPIC: Acids and Bases
+QUESTION: Which ion is released by acids in water?
+TYPE: multiple-choice
+OPTIONS: OH-|Na+|H+|Cl-
+ANSWER: H+
+EXPLANATION: Acids increase the concentration of hydrogen ions, H+, in aqueous solution.
+---
 TOPIC: Thermochemistry
 QUESTION: Which process is endothermic?
 TYPE: multiple-choice
@@ -47,9 +117,51 @@ OPTIONS: Freezing water|Condensing steam|Evaporation of water|Combustion of meth
 ANSWER: Evaporation of water
 EXPLANATION: Endothermic processes absorb heat; evaporation requires energy input.
 ---
+TOPIC: Thermochemistry
+QUESTION: Exothermic reactions release heat to the surroundings.
+TYPE: true-false
+OPTIONS: True|False
+ANSWER: True
+EXPLANATION: In exothermic processes, the system loses heat and the surroundings warm up.
+---
+TOPIC: Thermochemistry
+QUESTION: The enthalpy change of an exothermic reaction is negative.
+TYPE: true-false
+OPTIONS: True|False
+ANSWER: True
+EXPLANATION: Exothermic reactions release energy, so ΔH is negative.
+---
+TOPIC: Thermochemistry
+QUESTION: Which process is most likely to be exothermic?
+TYPE: multiple-choice
+OPTIONS: Melting ice|Boiling water|Burning wood|Evaporating alcohol
+ANSWER: Burning wood
+EXPLANATION: Combustion releases energy, so burning wood is an exothermic reaction.
+---
 TOPIC: Equilibrium
 QUESTION: Increasing pressure favors the side with fewer gas moles in a gaseous equilibrium.
 TYPE: true-false
 OPTIONS: True|False
 ANSWER: True
 EXPLANATION: By Le Chatelier's principle, pressure increase shifts equilibrium to reduce gas moles.
+---
+TOPIC: Equilibrium
+QUESTION: A catalyst changes the position of equilibrium in a reaction.
+TYPE: true-false
+OPTIONS: True|False
+ANSWER: False
+EXPLANATION: A catalyst speeds up both forward and reverse reactions equally without changing equilibrium position.
+---
+TOPIC: Equilibrium
+QUESTION: If Q < K, the reaction will proceed forward to produce more products.
+TYPE: true-false
+OPTIONS: True|False
+ANSWER: True
+EXPLANATION: When the reaction quotient is below the equilibrium constant, the system shifts toward products.
+---
+TOPIC: Equilibrium
+QUESTION: Which change will shift equilibrium toward the side with fewer gas molecules?
+TYPE: multiple-choice
+OPTIONS: Decreasing pressure|Increasing pressure|Lowering temperature|Adding a catalyst
+ANSWER: Increasing pressure
+EXPLANATION: Higher pressure favors the side with fewer gaseous moles and therefore reduces volume.

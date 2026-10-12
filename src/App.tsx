@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { questions, questionsByTopic } from './data/questions'
+import { getQuestionsForMode } from './data/practiceSession'
 import { HomeScreen } from './screens/HomeScreen'
 import { QuizScreen } from './screens/QuizScreen'
 import { ResultsScreen } from './screens/ResultsScreen'
@@ -10,6 +11,7 @@ type AppScreen = 'home' | 'quiz' | 'results'
 function App() {
   const [screen, setScreen] = useState<AppScreen>('home')
   const [mode, setMode] = useState<'practice' | 'mistakes'>('practice')
+  const [selectedTopic, setSelectedTopic] = useState<'all' | string>('all')
   const [result, setResult] = useState<QuizResult | null>(null)
 
   const mistakeQuestions = useMemo(() => {
@@ -20,7 +22,13 @@ function App() {
     return questions.filter((question) => result.wrongQuestionIds.includes(question.id))
   }, [result])
 
-  const sessionQuestions = mode === 'practice' ? questions : mistakeQuestions
+  const sessionQuestions = useMemo(() => {
+    if (mode === 'mistakes') {
+      return mistakeQuestions
+    }
+
+    return getQuestionsForMode(questions, selectedTopic)
+  }, [mode, mistakeQuestions, selectedTopic])
 
   return (
     <main className="min-h-screen bg-[#f3fbf8] text-slate-900">
@@ -30,6 +38,12 @@ function App() {
           lastResult={result}
           onStartPractice={() => {
             setMode('practice')
+            setSelectedTopic('all')
+            setScreen('quiz')
+          }}
+          onStartChapterPractice={(topic) => {
+            setMode('practice')
+            setSelectedTopic(topic)
             setScreen('quiz')
           }}
         />
@@ -56,9 +70,13 @@ function App() {
           }}
           onReviewMistakes={() => {
             setMode('mistakes')
+            setSelectedTopic('all')
             setScreen('quiz')
           }}
-          onBackHome={() => setScreen('home')}
+          onBackHome={() => {
+            setSelectedTopic('all')
+            setScreen('home')
+          }}
         />
       )}
     </main>

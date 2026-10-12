@@ -4,9 +4,15 @@ interface HomeScreenProps {
   questionsByTopic: Record<string, ChemistryQuestion[]>
   lastResult: QuizResult | null
   onStartPractice: () => void
+  onStartChapterPractice: (topic: string) => void
 }
 
-export const HomeScreen = ({ questionsByTopic, lastResult, onStartPractice }: HomeScreenProps) => {
+export const HomeScreen = ({
+  questionsByTopic,
+  lastResult,
+  onStartPractice,
+  onStartChapterPractice,
+}: HomeScreenProps) => {
   return (
     <section className="mx-auto max-w-5xl px-4 py-10">
       <header className="rounded-3xl bg-gradient-to-r from-green-500 to-emerald-400 p-8 text-white shadow-lg">
@@ -20,15 +26,26 @@ export const HomeScreen = ({ questionsByTopic, lastResult, onStartPractice }: Ho
           onClick={onStartPractice}
           className="mt-6 rounded-full bg-white px-6 py-3 text-base font-bold text-green-600 transition hover:scale-[1.02]"
         >
-          Start Practice
+          Practice all chapters
         </button>
       </header>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {Object.entries(questionsByTopic).map(([topic, topicQuestions]) => (
           <article key={topic} className="rounded-3xl border-2 border-green-100 bg-white p-5 shadow-sm">
-            <h2 className="text-xl font-bold text-slate-900">{topic}</h2>
-            <p className="mt-2 text-slate-600">{topicQuestions.length} questions available</p>
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <h2 className="text-xl font-bold text-slate-900">{topic}</h2>
+                <p className="mt-2 text-slate-600">{topicQuestions.length} questions available</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => onStartChapterPractice(topic)}
+                className="rounded-full bg-green-100 px-3 py-2 text-sm font-semibold text-green-700 transition hover:bg-green-200"
+              >
+                Practice chapter
+              </button>
+            </div>
           </article>
         ))}
       </div>
