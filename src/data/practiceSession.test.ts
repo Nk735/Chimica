@@ -24,3 +24,30 @@ test('returns only the selected chapter questions for chapter mode', () => {
     { id: 'q-3', topic: 'Atomic Structure' },
   ])
 })
+
+test('returns only the selected paragraph questions when a paragraph is requested', () => {
+  const questions = [
+    { id: 'q-1', topic: '1.1 Matter' },
+    { id: 'q-2', topic: '1.2 Atoms' },
+    { id: 'q-3', topic: '1.1 Matter' },
+  ]
+
+  assert.deepEqual(getQuestionsForMode(questions, '1.1 Matter'), [
+    { id: 'q-1', topic: '1.1 Matter' },
+    { id: 'q-3', topic: '1.1 Matter' },
+  ])
+})
+
+test('limits a random chapter mix to the requested number of questions', () => {
+  const questions = [
+    { id: 'q-1', topic: '1.1 Matter' },
+    { id: 'q-2', topic: '1.2 Atoms' },
+    { id: 'q-3', topic: '1.3 Properties' },
+    { id: 'q-4', topic: '1.1 Matter' },
+  ]
+
+  const result = getQuestionsForMode(questions, 'Capitolo 1', { questionLimit: 2 })
+
+  assert.equal(result.length, 2)
+  assert.ok(result.every((question) => question.topic.startsWith('1.')))
+})

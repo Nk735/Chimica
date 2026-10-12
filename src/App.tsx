@@ -11,7 +11,9 @@ type AppScreen = 'home' | 'quiz' | 'results'
 function App() {
   const [screen, setScreen] = useState<AppScreen>('home')
   const [mode, setMode] = useState<'practice' | 'mistakes'>('practice')
-  const [selectedTopic, setSelectedTopic] = useState<'all' | string>('all')
+  const [selectedTopic, setSelectedTopic] = useState<'all' | string | string[]>('all')
+  const [selectedQuestionLimit, setSelectedQuestionLimit] = useState<number | null>(null)
+  const [practiceDuration, setPracticeDuration] = useState(30)
   const [result, setResult] = useState<QuizResult | null>(null)
 
   const mistakeQuestions = useMemo(() => {
@@ -27,8 +29,9 @@ function App() {
       return mistakeQuestions
     }
 
-    return getQuestionsForMode(questions, selectedTopic)
-  }, [mode, mistakeQuestions, selectedTopic])
+    const questionLimit = selectedQuestionLimit ?? undefined
+    return getQuestionsForMode(questions, selectedTopic, { questionLimit })
+  }, [mode, mistakeQuestions, selectedQuestionLimit, selectedTopic])
 
   return (
     <main className="min-h-screen bg-[#f3fbf8] text-slate-900">
@@ -36,14 +39,18 @@ function App() {
         <HomeScreen
           questionsByTopic={questionsByTopic}
           lastResult={result}
-          onStartPractice={() => {
+          onStartPractice={(configuration) => {
             setMode('practice')
-            setSelectedTopic('all')
+            setSelectedTopic(configuration.chapters)
+            setSelectedQuestionLimit(configuration.questionLimit)
+            setPracticeDuration(configuration.durationMinutes)
             setScreen('quiz')
           }}
-          onStartChapterPractice={(topic) => {
+          onStartChapterPractice={(topic, paragraph, questionLimit) => {
             setMode('practice')
-            setSelectedTopic(topic)
+            setSelectedTopic(paragraph ?? topic)
+            setSelectedQuestionLimit(questionLimit ?? null)
+            setPracticeDuration(30)
             setScreen('quiz')
           }}
         />
@@ -53,6 +60,11 @@ function App() {
         <QuizScreen
           mode={mode}
           questions={sessionQuestions}
+          durationMinutes={practiceDuration}
+          onInterrupt={() => {
+            setSelectedTopic('all')
+            setScreen('home')
+          }}
           onFinish={(nextResult) => {
             setResult(nextResult)
             setScreen('results')

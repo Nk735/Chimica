@@ -27,3 +27,9 @@ export interface QuizResult {
   livesRemaining: number
   answerHistory: AnswerRecord[]
 }
+
+export interface PracticeConfiguration {
+  chapters: string[]
+  questionLimit: number
+  durationMinutes: number
+}

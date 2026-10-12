@@ -1,5 +1,21 @@
 import type { ChemistryQuestion } from '../types/quiz'
 
+interface DatabaseTopic {
+  paragrafo: string
+  domande: DatabaseQuestion[]
+}
+
+interface DatabaseQuestion {
+  id: number
+  testo: string
+  opzioni: string[]
+  risposta_corretta: string
+}
+
+interface ChemistryDatabase {
+  argomenti: DatabaseTopic[]
+}
+
 const REQUIRED_KEYS = ['TOPIC', 'QUESTION', 'TYPE', 'OPTIONS', 'ANSWER', 'EXPLANATION'] as const
 
 const normalizeType = (value: string): ChemistryQuestion['type'] => {
@@ -53,4 +69,29 @@ export const parseChemistryQuestions = (raw: string): ChemistryQuestion[] => {
         explanation: map.get('EXPLANATION')!,
       }
     })
+}
+
+export const parseChemistryDatabase = (raw: string, source: string): ChemistryQuestion[] => {
+  const database = JSON.parse(raw) as ChemistryDatabase
+
+  return database.argomenti.flatMap((topic) =>
+    topic.domande.map((question) => {
+      const answerIndex = question.risposta_corretta.toUpperCase().charCodeAt(0) - 65
+      const correctAnswer = question.opzioni[answerIndex]
+
+      if (!correctAnswer) {
+        throw new Error(`Answer mismatch for question ${question.id} in ${source}`)
+      }
+
+      return {
+        id: `${source}-q-${question.id}`,
+        topic: topic.paragrafo,
+        prompt: question.testo,
+        type: 'multiple-choice',
+        options: question.opzioni,
+        correctAnswer,
+        explanation: `La risposta corretta e ${correctAnswer}`,
+      }
+    }),
+  )
 }

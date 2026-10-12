@@ -24,6 +24,10 @@ export const QuestionCard = ({
           const showResult = feedback !== null && isSelected
 
           let optionClassName = 'border-slate-200 bg-white hover:border-green-300'
+          if (isSelected && feedback === null) {
+            optionClassName = 'border-blue-500 bg-blue-50 text-blue-900'
+          }
+
           if (showResult && feedback === 'correct') {
             optionClassName = 'border-green-500 bg-green-100 text-green-900'
           }
