@@ -1,0 +1,55 @@
+TOPIC: Atomic Structure
+QUESTION: Which subatomic particle determines the atomic number of an element?
+TYPE: multiple-choice
+OPTIONS: Proton|Neutron|Electron|Photon
+ANSWER: Proton
+EXPLANATION: The atomic number is defined as the number of protons in the nucleus.
+---
+TOPIC: Atomic Structure
+QUESTION: Isotopes of the same element have the same number of protons but different numbers of neutrons.
+TYPE: true-false
+OPTIONS: True|False
+ANSWER: True
+EXPLANATION: Isotopes are atoms of one element with different neutron counts.
+---
+TOPIC: Chemical Bonding
+QUESTION: Which bond forms by the transfer of electrons from one atom to another?
+TYPE: multiple-choice
+OPTIONS: Covalent bond|Hydrogen bond|Ionic bond|Metallic bond
+ANSWER: Ionic bond
+EXPLANATION: Ionic bonds form when electrons are transferred, creating oppositely charged ions.
+---
+TOPIC: Chemical Bonding
+QUESTION: A molecule of O2 contains a double covalent bond.
+TYPE: true-false
+OPTIONS: True|False
+ANSWER: True
+EXPLANATION: Each oxygen atom shares two electrons, giving a double bond.
+---
+TOPIC: Stoichiometry
+QUESTION: What is the molar mass of H2O?
+TYPE: multiple-choice
+OPTIONS: 16 g/mol|18 g/mol|20 g/mol|22 g/mol
+ANSWER: 18 g/mol
+EXPLANATION: H2O has two hydrogens (2 x 1) and one oxygen (16), totaling 18 g/mol.
+---
+TOPIC: Acids and Bases
+QUESTION: A solution with pH 3 is acidic.
+TYPE: true-false
+OPTIONS: True|False
+ANSWER: True
+EXPLANATION: Solutions with pH below 7 are acidic.
+---
+TOPIC: Thermochemistry
+QUESTION: Which process is endothermic?
+TYPE: multiple-choice
+OPTIONS: Freezing water|Condensing steam|Evaporation of water|Combustion of methane
+ANSWER: Evaporation of water
+EXPLANATION: Endothermic processes absorb heat; evaporation requires energy input.
+---
+TOPIC: Equilibrium
+QUESTION: Increasing pressure favors the side with fewer gas moles in a gaseous equilibrium.
+TYPE: true-false
+OPTIONS: True|False
+ANSWER: True
+EXPLANATION: By Le Chatelier's principle, pressure increase shifts equilibrium to reduce gas moles.
